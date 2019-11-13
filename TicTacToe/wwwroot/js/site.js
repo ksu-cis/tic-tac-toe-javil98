@@ -59,3 +59,5 @@ for (i = 0; i < cells.length; i++) {
 }
 
 setTurn();
+
+var form = do
