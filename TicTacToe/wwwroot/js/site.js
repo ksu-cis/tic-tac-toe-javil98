@@ -9,7 +9,7 @@ document.getElementById("turn");
 
 function setWinner(winner) {
     var turnElement = document.getElementById("turn");
-    turnElement.innerText = 'It is player ${turn}'s turn';
+    //turnElement.innerText = 'It is player ${turn}'s turn';
 }
 
 function checkForWin() {
@@ -60,4 +60,35 @@ for (i = 0; i < cells.length; i++) {
 
 setTurn();
 
-var form = do
+var dragging;
+var squares = document.getElementsByClassName("square");
+for (var i = 0; i < squares.length; i++) {
+    squares[i].addEventListener('dragenter', onDragEnter);
+    squares[i].addEventListener('drop', onDrop);
+    squares[i].addEvnetListener('dragleave', onDragLeave);
+}
+
+function onDragEnter(event) {
+    if (!even.target.children.length > 0) return;
+    if (event.target.target.classList.contains("checker")) return;
+    if (event.target.classList.contains("red")) return;
+    even.preventDefault();
+    event.target.style.backgroundColor = "yellow";
+}
+
+function onDrop(event) {
+    console.log(event);
+
+}
+
+function onDragLeave(event) {
+    event.target.style.background = null;
+    consoloe.log('')
+}
+
+function onDragStart(event) {
+    dragging = {
+        x: even.target.dataset.x,
+        y: even.target.dataset.y;
+    }
+}
